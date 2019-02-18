@@ -1,0 +1,14 @@
+<h1>Result</h1>
+<p>Your word: <%= @word %></p>
+<p>Your letters: <%= @letters %></p>
+<p>Your score: <%= @score %> / total score: <%= @total_score %> </p>
+
+<% if @message == "not_english" %>
+<%= "Sorry but " %><strong><%= @word %></strong><%= " does not seem to be an english word" %>
+<% elsif @message == "not_fit" %>
+<%= "Sorry but " %><strong><%= @word %></strong><%= " can't be built out of #{@letters.join(", ")}" %>
+<% elsif @message == "congrats" %>
+<%= "Congrats" %>
+<% end %>
+
+<div><%= link_to "Play again", new_path %></div>
